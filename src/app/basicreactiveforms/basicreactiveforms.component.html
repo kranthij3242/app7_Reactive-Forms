@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class= "row justify-content-center" style ="margin-top: 40px;">
+        <div class="col-8">
+            <div class="jumbotron">
+                <h3>Reactive Form Custom validation</h3>
+                <div>
+                    <form [formGroup]="form">
+                        <div class="form-group">
+                            <label for="uname">UserName</label>
+                            <input type="text" id="uname" class="form-control" formControlName="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="upwd">Password</label>
+                            <input type="text" id="upwd" class="form-control" formControlName="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="ucnfpass">Confirm Password</label>
+                            <input type="text" id="ucnfpass" class="form-control" formControlName="cnfpass">
+                        </div>
+                        <div class="form-group">
+                            <label for="zipcode">Zip Code</label>
+                            <input type="text" id="zipcode" class="form-control" formControlName="zip">
+                        </div>
+                        <button type="submit" class="btn btn-primary" (click)="submitData()">submit</button>
+                        <br><br>
+                        <hr>
+                      <div *ngIf="form.touched">
+                          <span>
+                              <i class="fa fa-check-circle" style="color:green" *ngIf="form.controls.username.valid"></i>
+                              <i class="fa fa-check-circle" style="color:firebrick" *ngIf="form.controls.username.invalid"></i>
+                              UserName should be minimum 4 characters
+                          </span>
+                          <span>
+                            <i class="fa fa-check-circle" style="color:green" *ngIf="form.controls.cnfpass.valid"></i>
+                            <i class="fa fa-check-circle" style="color:firebrick" *ngIf="form.controls.cnfpass.invalid"></i>
+                            Password and confirmpassword should match
+                        </span>
+                          <span>
+                            <i class="fa fa-check-circle" style="color:green" *ngIf="form.controls.zip.valid"></i>
+                            <i class="fa fa-check-circle" style="color:firebrick" *ngIf="form.controls.zip.invalid"></i>
+                            zip code should be numbers and max 6 characters allowed
+                        </span>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
